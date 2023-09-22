@@ -1,6 +1,7 @@
 package com.jbk.model;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -9,6 +10,7 @@ import org.springframework.lang.NonNull;
 
 public class Supplier {
 
+	
 	private long supplierId;
 	
 	@NotBlank(message = "Supplier Name Should Be Not Blank")
@@ -16,8 +18,8 @@ public class Supplier {
 	private String supplierName;
 	
 
-	@Size(min = 10,max = 10)
-	@Pattern(regexp = "^[0-9]+$")
+	@Size(min = 10,max = 10,message = "Mobile Number Should Be 10 Digit")
+	@Pattern(regexp = "^[0-9]+$",message = "Invalid Mobile Number")
 	private String supplierMobileNumber;
 	
 	@Valid
