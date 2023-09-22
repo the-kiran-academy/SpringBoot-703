@@ -1,16 +1,13 @@
 package com.jbk.model;
 
 import javax.validation.Valid;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-
 import org.springframework.lang.NonNull;
 
 public class Supplier {
 
-	
 	private long supplierId;
 	
 	@NotBlank(message = "Supplier Name Should Be Not Blank")
