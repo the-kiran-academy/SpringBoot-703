@@ -1,29 +1,32 @@
 package com.jbk.model;
 
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class Address {
 	
-	
+	@Min(1)
+	@Max(4)
 	private long addressId;
 	
 	@NotBlank(message = "City Name Should Not Be Blank")
 	@Pattern(regexp = "^[a-zA-Z]+$",message = "Invalid City Name")
 	private String city;
 	
-	@NotBlank
-	@Pattern(regexp = "^[a-zA-Z]+$")
+	@NotBlank(message = "District Name Should Not Be Blank")
+	@Pattern(regexp = "^[a-zA-Z]+$",message = "District Name Should Be Only Alphabetic Character")
 	private String district;
 	
-	@NotBlank
-	@Pattern(regexp = "^[a-zA-Z]+$")
+	@NotBlank(message = "State Name Should Not Be Blank")
+	@Pattern(regexp = "^[a-zA-Z]+$",message = "State Name Should Be Only Alphabetic Character")
 	private String state;
 	
-	@Pattern(regexp = "^[0-9]+$")
-	@Size(min = 6,max = 6)
+	@Pattern(regexp = "^[0-9]+$",message = "Invalid Pincode Number")
+	@Size(min = 6,max = 6,message = "Pincode Should Be 6 Digit")
 	private String pinCode;
 	
 	public Address() {
