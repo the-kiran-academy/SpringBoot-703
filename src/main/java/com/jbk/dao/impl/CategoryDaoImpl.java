@@ -12,8 +12,8 @@ public class CategoryDaoImpl implements CategoryDao {
 	List<Category> list=new ArrayList<>();
 	
 	public CategoryDaoImpl() {
-		list.add(new Category(1, "Electronics", "electronic product", 5, 12, 60));
-		list.add(new Category(2, "General", "general product", 3, 8, 30));
+		list.add(new Category(1l, "Electronics", "electronic product", 5, 12, 60d));
+		list.add(new Category(2l, "General", "general product", 3, 8, 30d));
 	}
 
 	@Override

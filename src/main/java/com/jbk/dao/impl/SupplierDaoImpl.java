@@ -4,12 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Repository;
 import com.jbk.dao.SupplierDao;
+import com.jbk.model.Address;
 import com.jbk.model.Supplier;
 
 @Repository
 public class SupplierDaoImpl implements SupplierDao {
 
 	List<Supplier> list = new ArrayList<>();
+	
+	public SupplierDaoImpl() {
+		list.add(new Supplier(1l, "Yash Distributor", "9011223344", new Address(1l, "pune", "pune", "Maharashtra", "411052")));
+		list.add(new Supplier(2l, "Akash Distributor", "9011223355", new Address(1l, "pune", "pune", "Maharashtra", "411052")));
+
+	}
 	
 	
 	private boolean isExists(Supplier supplier) {
