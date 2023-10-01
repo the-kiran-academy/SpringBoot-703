@@ -1,8 +1,7 @@
 package com.jbk.dao.impl;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
+
 import java.util.List;
 import org.springframework.stereotype.Repository;
 import com.jbk.dao.ProductDao;
@@ -12,6 +11,7 @@ import com.jbk.model.Product;
 import com.jbk.model.Supplier;
 
 @Repository
+
 public class ProductDaoImpl implements ProductDao {
 
 	List<Product> list = new ArrayList<>();
@@ -38,10 +38,20 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	@Override
-	public Product getProductById(long productId) {
-		// TODO Auto-generated method stub
+	public Product getProductById(long productId) 
+	{
+		
+		for (Product ele : list) 
+		{
+			if (productId==ele.getProductId())
+			{
+				return ele;
+			}
+
+		}
 		return null;
 	}
+
 
 	@Override
 	public List<Product> getAllProduct() {

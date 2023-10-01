@@ -8,7 +8,9 @@ import com.jbk.model.Supplier;
 @Component
 public class ObjectValidation {
 	
-	public boolean validateObject(Supplier supplier) {
+
+	public boolean validateObject(Supplier supplier) 
+	{
 		boolean isValid=true;
 		
 	if(supplier.getSupplierName()==null || supplier.getSupplierName().trim().equals("")){
@@ -24,7 +26,11 @@ public class ObjectValidation {
 	}
 	
 	
-	public boolean validateObject(Product product) {
+	public boolean validateObject(Product product) 
+	{
+		boolean isValid=true;
+
+
 		return false;
 		
 	}

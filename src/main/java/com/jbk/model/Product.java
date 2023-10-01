@@ -1,9 +1,14 @@
 package com.jbk.model;
 
 import java.sql.Date;
-public class Product {
-	
-	
+
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Product 
+{
+
 	private long productId;
 	private String productName;
 	private double productPrice;

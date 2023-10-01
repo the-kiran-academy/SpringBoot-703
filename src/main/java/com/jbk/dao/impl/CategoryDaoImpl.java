@@ -8,18 +8,42 @@ import com.jbk.model.Category;
 
 @Repository
 public class CategoryDaoImpl implements CategoryDao {
-	
-	List<Category> list=new ArrayList<>();
-	
+
+
+	List<Category> list = new ArrayList<>();
+
 	public CategoryDaoImpl() {
 		list.add(new Category(1l, "Electronics", "electronic product", 5, 12, 60d));
 		list.add(new Category(2l, "General", "general product", 3, 8, 30d));
 	}
 
+	private boolean isExists(Category category) {
+		boolean isExists = false;
+
+		for (Category dbCategory : list) {
+			if (category.getCategoryName().equalsIgnoreCase(dbCategory.getCategoryName())) {
+
+				isExists = true;
+				break;
+
+			}
+		}
+
+		return isExists;
+	}
+
 	@Override
 	public int addCategory(Category category) {
-		// TODO Auto-generated method stub
-		return 0;
+
+		if (isExists(category) == false) {
+			list.add(category);
+			return 1;
+		} else {
+
+			return 2;
+		}
+
+
 	}
 
 	@Override

@@ -29,26 +29,27 @@ public class SupplierServiceImpl implements SupplierService {
 
 	@Override
 	public Supplier getSupplierById(long supplierId) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return dao.getSupplierById(supplierId);
 	}
 
 	@Override
 	public List<Supplier> getAllSupplier() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return dao.getAllSupplier();
 	}
 
 	@Override
-	public List<Supplier> deleteSupplier() {
-		// TODO Auto-generated method stub
-		return null;
+	public Object deleteSupplier(long supplierId) {
+		
+		return dao.deleteSupplier(supplierId);
 	}
 
 	@Override
-	public Supplier updateSupplier() {
-		// TODO Auto-generated method stub
-		return null;
+	public Supplier updateSupplier(Supplier supplier) {
+		
+		return dao.updateSupplier(supplier);
+
 	}
 
 }

@@ -29,9 +29,12 @@ public class ProductServiceImpl implements ProductService{
 
 
 	@Override
-	public Product getProductById(long productId) {
-		// TODO Auto-generated method stub
-		return null;
+
+	public Product getProductById(long productId) 
+	{
+		
+		return dao.getProductById(productId);
+
 	}
 
 
