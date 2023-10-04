@@ -2,6 +2,10 @@ package com.jbk.model;
 
 import java.sql.Date;
 
+import javax.validation.constraints.Min;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 import org.springframework.stereotype.Component;
 
@@ -10,11 +14,26 @@ public class Product
 {
 
 	private long productId;
+	
+	@NotBlank(message = "productName cannot be empty.")
+	@Pattern(regexp = "^[a-zA-Z]+$", message = "productName should contains only alphabetic characters.")
 	private String productName;
+	
+	
+	
 	private double productPrice;
+	
+		
 	private int productQty;
+	
+	@NotBlank(message = "productDescription cannot be empty.")
+	//@Pattern(regexp = "^[a-z A-Z]+$", message = "productDescription should contains only alphabetic characters.")
 	private String productDiscription;
+	
+   
 	private Date mfgDate;
+   
+   
 	private Date expDate;
 	private Supplier productSupplier;
 	private Category productCategory;

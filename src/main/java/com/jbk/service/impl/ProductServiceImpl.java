@@ -17,14 +17,13 @@ public class ProductServiceImpl implements ProductService{
 	
 	@Override
 	public int saveProduct(Product product) {
-		
-		return 0;
+		return dao.addProduct(product);
 	}
 	
 
 	@Override
-	public List<Product> deleteProduct(long productId) {
-		return null;
+	public Object deleteProduct(long productId) {
+		return dao.deleteProduct(productId);
 	}
 
 
@@ -40,15 +39,40 @@ public class ProductServiceImpl implements ProductService{
 
 	@Override
 	public List<Product> getAllProduct() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return dao.getAllProduct();
 	}
 
 
 	@Override
 	public Product updateProduct(Product product) {
-		// TODO Auto-generated method stub
+	
+		return dao.updateProduct(product);
+	}
+
+
+	@Override
+	public Product getFinalPrice(long productId) {
+	Product product = dao.getFinalPrice(productId);
+	double price =product.getProductPrice();
+	int quentity =product.getProductQty();
+double charges =	product.getProductCategory().getDeliveryCharges();
+int discount =product.getProductCategory().getDiscount();
+int gst = product.getProductCategory().getGst();
+double discount1 =(price*discount)/100 ;
+double gst1 = (price*gst)/100;
+
+
+
+
 		return null;
 	}
 
+
+	
+
+	
+	
+	
+	
 }

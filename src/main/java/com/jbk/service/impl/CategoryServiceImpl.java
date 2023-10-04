@@ -29,26 +29,26 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Override
 	public Category getCategoryById(long categoryId) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return dao.getCategoryById(categoryId);
 	}
 
 	@Override
 	public List<Category> getAllCategory() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return dao.getAllCategory();
 	}
 
 	@Override
-	public List<Category> deleteCategory() {
-		// TODO Auto-generated method stub
-		return null;
+	public Object deleteCategory(long categoryId) {
+		
+		return dao.deleteCategory(categoryId);
 	}
 
 	@Override
-	public Category updateCategory() {
-		// TODO Auto-generated method stub
-		return null;
+	public Category updateCategory(Category category) {
+		
+		return dao.updateCategory(category);
 	}
 
 }

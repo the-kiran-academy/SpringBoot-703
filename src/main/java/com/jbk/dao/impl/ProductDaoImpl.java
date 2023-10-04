@@ -30,11 +30,31 @@ public class ProductDaoImpl implements ProductDao {
 				new Category(2l, "General", "general product", 3, 8, 30d)));
 
 	}
+	
+	
+	private boolean isExists(Product product) {
+
+		boolean isExists = false;
+		for (Product dbProduct : list) {
+			if (product.getProductName().equalsIgnoreCase(dbProduct.getProductName())) {
+				isExists = true;
+				break;
+			}
+
+		}
+		return isExists;
+	}
 
 	@Override
 	public int addProduct(Product product) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+			if (isExists(product) == false) {
+				list.add(product);
+				return 1;
+			} else {
+				return 2;
+			}
+
 	}
 
 	@Override
@@ -55,19 +75,48 @@ public class ProductDaoImpl implements ProductDao {
 
 	@Override
 	public List<Product> getAllProduct() {
-
-		return list;
+     return list;
 	}
 
+	
 	@Override
-	public List<Product> deleteProduct() {
-		// TODO Auto-generated method stub
-		return null;
+	public Object deleteProduct(long productId) {
+		int status =0;
+		if(!list.isEmpty()) {
+		for (Product product : list) {
+			if(product.getProductId()==productId) {
+				list.remove(product);
+				return list;
+			}else {
+				status= 1;
+			}
+			
+		}
+		}else {
+			status = 2;
+		}
+		return status;
 	}
 
+	
 	@Override
-	public Product updateProduct() {
-		// TODO Auto-generated method stub
+	public Product updateProduct(Product product) {
+		for (Product pro : list) {
+			if(pro.getProductId()==product.getProductId()) {
+				list.set(list.indexOf(pro), product);
+				return product;
+			}
+			}return null;
+}
+
+
+	@Override
+	public Product getFinalPrice(long productId) {
+		for (Product product : list) {
+			if(product.getProductId()==productId) {
+				return product;
+			}
+		}
 		return null;
 	}
 

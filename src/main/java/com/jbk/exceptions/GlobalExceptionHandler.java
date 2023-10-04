@@ -73,5 +73,14 @@ public class GlobalExceptionHandler {
 		return map;
 	}
 
+	@ExceptionHandler(ProductAlreadyExistsException.class)
+	@ResponseStatus(code = HttpStatus.CONFLICT)
+	public Map<String, Object> productAlreadyExists(ProductAlreadyExistsException ex) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("Timestamp", new Date());
+		map.put("Default Message", ex.getMessage());
+		return map;
+
+	}
 
 }

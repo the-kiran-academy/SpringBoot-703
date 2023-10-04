@@ -9,7 +9,6 @@ import com.jbk.model.Category;
 @Repository
 public class CategoryDaoImpl implements CategoryDao {
 
-
 	List<Category> list = new ArrayList<>();
 
 	public CategoryDaoImpl() {
@@ -43,30 +42,52 @@ public class CategoryDaoImpl implements CategoryDao {
 			return 2;
 		}
 
-
 	}
 
 	@Override
 	public Category getCategoryById(long categoryId) {
-		// TODO Auto-generated method stub
+		for (Category category : list) {
+				if (category.getCategoryId() == categoryId) {
+					return category;
+				}
+				}
 		return null;
 	}
 
+	
+	
 	@Override
 	public List<Category> getAllCategory() {
-		// TODO Auto-generated method stub
-		return null;
+		return list;
 	}
 
 	@Override
-	public List<Category> deleteCategory(long categoryId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Object deleteCategory(long categoryId) {
+		int status =0;
+		if(!list.isEmpty()) {
+			for (Category category : list) {
+				if(category.getCategoryId()==categoryId) {
+					 list.remove(category);
+					 return list;
+				}else {
+					status=1;
+				}
+				
+			}
+		}else {
+			status =2;
+		}
+		return status;
 	}
 
 	@Override
 	public Category updateCategory(Category category) {
-		// TODO Auto-generated method stub
+		for (Category category1 : list) {
+			if(category1.getCategoryId()==category.getCategoryId()) {
+			list.set(list.indexOf(category1), category);
+			return category1;
+		}
+		}
 		return null;
 	}
 

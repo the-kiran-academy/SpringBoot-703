@@ -9,6 +9,7 @@ public interface ProductDao {
 	public int addProduct(Product product);
 	public Product getProductById(long productId);
 	public List<Product> getAllProduct();
-	public List<Product> deleteProduct();
-	public Product updateProduct();
+	public Object deleteProduct(long productId);
+	public Product updateProduct(Product product);
+	public Product getFinalPrice(long productId);
 }
